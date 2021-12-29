@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from 'express';
 import dbInit from './db/init';
 import routes from './routes';
 
-var init = async () =>
+const init = async () =>
 {
     await dbInit();
 }

@@ -8,13 +8,14 @@ interface UserAttributes {
     password: string;
     rank: string;
     registrationNumber: number;
+    isAdmin: boolean;
     createdAt?: Date;
     updatedAt?: Date;
     deletedAt?: Date;
 }
 
-export interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
-export interface UserCreationAttributesOutput extends Required<UserAttributes> {}
+export interface UserCreationAttributes extends Optional<UserAttributes, "id"> { }
+export interface UserCreationAttributesOutput extends Required<UserAttributes> { }
 
 class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
     public id!: number;
@@ -23,6 +24,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
     public password!: string;
     public rank!: string;
     public registrationNumber!: number;
+    public isAdmin!: boolean;
 
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
@@ -55,12 +57,17 @@ User.init(
             type: new DataTypes.BIGINT,
             allowNull: false
         },
+        isAdmin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false,
+        }
     },
     {
         timestamps: true,
         sequelize: sequelizeConnection,
         tableName: "user",
-        paranoid: true  
+        paranoid: true
     }
 );
 

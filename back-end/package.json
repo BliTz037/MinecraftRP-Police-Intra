@@ -11,12 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.2",
     "pg": "^8.7.1",
     "postgres": "^1.0.2",
     "sequelize": "^7.0.0-alpha.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.13",
     "@types/node": "^17.0.1",
     "ts-node": "^10.4.0",
