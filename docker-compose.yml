@@ -14,6 +14,7 @@ services:
       DB_PASSWORD: "123456"
       DB_HOST: "postgres"
       DB_DRIVER: "postgres"
+      JSON_WEB_TOKEN: "zHd34Jza699dLEbM#gMGrM!HF4BeQzRkfFqE7EEq"
     ports:
       - "8080:8080"
     networks:

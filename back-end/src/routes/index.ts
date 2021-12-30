@@ -1,9 +1,8 @@
 import { Router, Request, Response } from "express";
+import AuthRouter from "./auth";
 
 const router: Router = Router();
 
-router.use('*', async (req: Request, res: Response): Promise<Response> => {
-    return res.status(404).send({ response: `API router OK !` });
-})
+router.use('/user', AuthRouter);
 
 export default router;

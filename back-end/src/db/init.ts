@@ -10,7 +10,7 @@ const adminInit = async () => {
             return;
         }
         console.log("No administrator account created. Creation in progress");
-        let passwordHash:string = await bcrypt.hash(process.env.ADMIN_PASSWORD|| "admin", 10);
+        let passwordHash:string = await bcrypt.hash(process.env.ADMIN_PASSWORD || "admin", 10);
         User.create({
             username: "admin",
             usernameGame: "God",
