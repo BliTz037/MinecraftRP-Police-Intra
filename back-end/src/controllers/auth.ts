@@ -16,7 +16,7 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
         const user = {
             username: req.body.username,
             usernameGame: req.body.usernameGame,
-            password: req.body.password,
+            password: hash,
             rank: req.body.rank,
             registrationNumber: req.body.registrationNumber,
             isAdmin: req.body.isAdmin
