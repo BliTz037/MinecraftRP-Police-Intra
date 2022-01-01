@@ -13,6 +13,7 @@ const checkAuth = async (req: Request, res: Response, next: NextFunction) => {
         let existUser = await User.findOne({ where: { id: authData!.id  , username: authData!.username } });
         if (!existUser)
             return res.status(403).json({ response: "Token expired !"});
+        res.locals["authData"] = authData;
         next();
     });
 }
