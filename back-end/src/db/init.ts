@@ -2,6 +2,7 @@ import User from "./models/User";
 import Criminal from "./models/Criminal";
 import * as bcrypt from "bcrypt";
 import Crime from "./models/Crime";
+import Report from "./models/Report";
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -32,6 +33,7 @@ const dbInit = async () => {
     await User.sync({ alter: isDev });
     await Criminal.sync({ alter: isDev });
     await Crime.sync({ alter: isDev });
+    await Report.sync({ alter: isDev });
     await adminInit();
 };
 
