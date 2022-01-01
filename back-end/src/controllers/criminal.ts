@@ -23,7 +23,7 @@ const createCriminal = async (req: Request, res: Response, next: NextFunction) =
         return res.status(201).json({ response: "Criminal added !" });
     }).catch(err => {
         console.error(err);
-        return res.status(500).send({ response: "Internal error" });
+        return res.status(500).json({ response: "Internal error" });
     });
 };
 
@@ -36,7 +36,7 @@ const getCriminal = async (req: Request, res: Response, next: NextFunction) => {
         return res.status(200).json(existCriminal);
     }).catch((error) => {
         console.error(error);
-        return res.status(500).send({ response: "Internal error" });
+        return res.status(500).json({ response: "Internal error" });
     });
 };
 
@@ -45,7 +45,7 @@ const getAllCriminals = async (req: Request, res: Response, next: NextFunction) 
         return res.status(200).json(Criminals);
     }).catch((error) => {
         console.error(error);
-        return res.status(500).send({ response: "Internal error" });
+        return res.status(500).json({ response: "Internal error" });
     });
 };
 
@@ -70,7 +70,7 @@ const updateCriminal = async (req: Request, res: Response, next: NextFunction) =
         return res.status(200).json({ response: "Criminal updated !" });
     }).catch((error) => {
         console.error(error);
-        return res.status(500).send({ response: "Internal error" });
+        return res.status(500).json({ response: "Internal error" });
     })
 };
 
@@ -84,11 +84,11 @@ const deleteCriminal = async (req: Request, res: Response, next: NextFunction) =
             return res.status(200).json({ response: "Criminal deleted !" });
         }).catch((error) => {
             console.error(error);
-            return res.status(500).send({ response: "Internal error" });
+            return res.status(500).json({ response: "Internal error" });
         })
     }).catch((error) => {
         console.error(error);
-        return res.status(500).send({ response: "Internal error" });
+        return res.status(500).json({ response: "Internal error" });
     });
 };
 
