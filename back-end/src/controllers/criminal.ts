@@ -29,7 +29,7 @@ const createCriminal = async (req: Request, res: Response, next: NextFunction) =
 
 const getCriminal = async (req: Request, res: Response, next: NextFunction) => {
     if (!req.params.id)
-        return res.status(400).json({ error: "Please specify a id" });
+        return res.status(400).json({ response: "Please specify a id" });
     Criminal.findOne({ where: { id: req.params.id } }).then((existCriminal) => {
         if (!existCriminal)
             return res.status(404).json({ response: "Criminal not found !" });
@@ -51,7 +51,7 @@ const getAllCriminals = async (req: Request, res: Response, next: NextFunction) 
 
 const updateCriminal = async (req: Request, res: Response, next: NextFunction) => {
     if (!req.params.id)
-        return res.status(400).json({ error: "Please specify a id" });
+        return res.status(400).json({ response: "Please specify a id" });
     if (!req.body.firstName || !req.body.lastName || !req.body.birthday ||
         !req.body.sexe || !req.body.usernameGame)
         return res.status(400).json({ response: "Bad parameters !" });
@@ -76,7 +76,7 @@ const updateCriminal = async (req: Request, res: Response, next: NextFunction) =
 
 const deleteCriminal = async (req: Request, res: Response, next: NextFunction) => {
     if (!req.params.id)
-        return res.status(400).json({ error: "Please specify a id" });
+        return res.status(400).json({ response: "Please specify a id" });
     Criminal.findOne({ where: { id: req.params.id } }).then((existCriminal) => {
         if (!existCriminal)
             return res.status(404).json({ response: "Criminal not found !" });
