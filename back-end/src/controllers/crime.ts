@@ -71,7 +71,7 @@ const updateCrime = async (req: Request, res: Response, next: NextFunction) => {
 
 const deleteCrime = async (req: Request, res: Response, next: NextFunction) => {
     if (!req.params.id)
-        return res.status(400).json({ response: "Criminal not found !" });
+        return res.status(400).json({ response: "Please specify a id" });
     Crime.findOne({ where: { id: req.params.id } }).then((existCrime) => {
         if (!existCrime)
             return res.status(404).json({ response: "Crime not found !" });
