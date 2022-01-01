@@ -5,7 +5,7 @@ interface ReportAttributes {
     id: number;
     title: string;
     text: string;
-    CriminalLink: number;
+    criminalLink: number;
     createdBy: number;
     createdAt?: Date;
     updatedAt?: Date;
@@ -19,7 +19,7 @@ class Report extends Model<ReportAttributes, ReportCreationAttributes> implement
     public id!: number;
     public title!: string;
     public text!: string;
-    public CriminalLink!: number;
+    public criminalLink!: number;
     public createdBy!: number;
 
     public readonly createdAt!: Date;
@@ -41,7 +41,7 @@ Report.init(
             type: DataTypes.STRING(2000),
             allowNull: false
         },
-        CriminalLink: {
+        criminalLink: {
             type: DataTypes.INTEGER,
             allowNull: true
         },
