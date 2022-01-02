@@ -1,0 +1,940 @@
+{
+	"info": {
+		"_postman_id": "d5ec4543-ad4b-4d83-8021-420d92440ee9",
+		"name": "MinecraftRP-Intra-Police",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "stephane.derrick",
+									"type": "default"
+								},
+								{
+									"key": "usernameGame",
+									"value": "BliTz_37",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "default"
+								},
+								{
+									"key": "rank",
+									"value": "Inspecteur",
+									"type": "default"
+								},
+								{
+									"key": "registrationNumber",
+									"value": "1495486",
+									"type": "default"
+								},
+								{
+									"key": "isAdmin",
+									"value": "0",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Criminal",
+			"item": [
+				{
+					"name": "Get all criminals",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/criminal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"criminal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a criminal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/criminal/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"criminal",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a criminal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/criminal/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"criminal",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a criminal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Emile",
+									"type": "default"
+								},
+								{
+									"key": "lastName",
+									"value": "Louis",
+									"type": "default"
+								},
+								{
+									"key": "birthday",
+									"value": "02/01/1995",
+									"type": "default"
+								},
+								{
+									"key": "sexe",
+									"value": "homme",
+									"type": "default"
+								},
+								{
+									"key": "physicalDescription",
+									"value": "Gros lard",
+									"type": "default"
+								},
+								{
+									"key": "usernameGame",
+									"value": "Nohko",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/criminal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"criminal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a criminal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Emile",
+									"type": "default"
+								},
+								{
+									"key": "lastName",
+									"value": "Louis",
+									"type": "default"
+								},
+								{
+									"key": "birthday",
+									"value": "02/01/1995",
+									"type": "default"
+								},
+								{
+									"key": "sexe",
+									"value": "homme",
+									"type": "default"
+								},
+								{
+									"key": "physicalDescription",
+									"value": "Gros lard, cheveux gris",
+									"type": "default"
+								},
+								{
+									"key": "usernameGame",
+									"value": "Nohko",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/criminal/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"criminal",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Crime",
+			"item": [
+				{
+					"name": "Get all crime",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/crime",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"crime"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a crime",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/crime/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"crime",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a crime",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/crime/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"crime",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a crime",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "criminalId",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "crimeCommitted",
+									"value": "Vol aggravé",
+									"type": "default"
+								},
+								{
+									"key": "sanction",
+									"value": "15 000$ / 2 ans de prison",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Véhicule volé: Peugeot 406 noir\nImmatriculation: AB-555-5ZE",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/crime",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"crime"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a crime",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "crimeCommitted",
+									"value": "Vol à l'étalage",
+									"type": "default"
+								},
+								{
+									"key": "sanction",
+									"value": "31$, rappel à la loi",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Du fromage, des hamburgers et des pains au chocolat ont été volé au magin Leclerc",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/crime/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"crime",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Get all reports",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/report/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"report",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/report/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"report",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Plainte Emil",
+									"type": "default"
+								},
+								{
+									"key": "text",
+									"value": "On m'a volé mon chocolat !",
+									"type": "default"
+								},
+								{
+									"key": "criminalLink",
+									"value": "4",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Plainte Emil Louis",
+									"type": "default"
+								},
+								{
+									"key": "text",
+									"value": "On ma volé mon chocolat noir",
+									"type": "default"
+								},
+								{
+									"key": "criminalLink",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/report/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"report",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Law",
+			"item": [
+				{
+					"name": "Get all laws",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/law",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"law"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a law",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJzdGVwaGFuZS5kZXJyaWNrIiwidXNlcm5hbWVHYW1lIjoiQmxpVHpfMzciLCJpYXQiOjE2NDA5ODM2NTZ9.9VuDXzJiqnjtPYrAme3osboEygZJ4i8Qxbxw61JuXEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/law/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"law",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a law",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJuYW1lR2FtZSI6IkdvZCIsImlhdCI6MTY0MTA4MDY2N30.6zNr5WFKinXrTgGSVwAyim7QY6K9nhdEk-jf3B0XgEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/law/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"law",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a law",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJuYW1lR2FtZSI6IkdvZCIsImlhdCI6MTY0MTA4MDY2N30.6zNr5WFKinXrTgGSVwAyim7QY6K9nhdEk-jf3B0XgEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Homicide",
+									"type": "default"
+								},
+								{
+									"key": "penalSanction",
+									"value": "30 ans de prison / 150 000$",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/law",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"law"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a law",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInVzZXJuYW1lR2FtZSI6IkdvZCIsImlhdCI6MTY0MTA4MDY2N30.6zNr5WFKinXrTgGSVwAyim7QY6K9nhdEk-jf3B0XgEU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Homicide volontaire",
+									"type": "default"
+								},
+								{
+									"key": "penalSanction",
+									"value": "30 ans de réclusion criminel",
+									"type": "default"
+								},
+								{
+									"key": "criminalLink",
+									"value": "",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/law/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"law",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
