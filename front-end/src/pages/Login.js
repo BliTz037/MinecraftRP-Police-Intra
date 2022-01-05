@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
-//import { loginUser } from '../api/user/user';
+import { loginUser } from '../api/user';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -28,17 +28,17 @@ const Login = () => {
 
     const handlesignIn = async (event) => {
         event.preventDefault();
-        // loginUser(username, password).then(res => {
-        //     localStorage.setItem('token', res.token.replace(/['"]+/g, ''));
-        //     navigate("/");
+        loginUser(username, password).then(res => {
+            localStorage.setItem('token', res.token.replace(/['"]+/g, ''));
+            navigate("/");
             
-        // }).catch(err => {
-        //     setNotif({
-        //         severity: "error",
-        //         text: `${err}`,
-        //         open: true,
-        //     });
-        // });
+        }).catch(err => {
+            setNotif({
+                severity: "error",
+                text: `${err}`,
+                open: true,
+            });
+        });
     }
 
     const handleClose = (event, reason) => {
