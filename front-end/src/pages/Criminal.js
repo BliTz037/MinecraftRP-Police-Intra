@@ -1,72 +1,74 @@
 import React from 'react';
-import { Box, Container, Divider, List } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { Box, Card, CardContent, Container, Grid, Typography } from '@mui/material';
 import Header from '../components/Header'
-import SearchIcon from '@mui/icons-material/Search';
-import CriminalList from '../components/CriminalList';
-import SearchBar from '../components/SearchBar';
+import NotFound from './NotFound';
 
-const dataCriminal = [
-    {
-        "id": 1,
-        "firstName": "Xavier",
-        "lastName": "Dupont-De-Ligonès",
-        "birthday": "2001-02-11T00:00:00.000Z",
-        "sexe": "homme",
-        "physicalDescription": "Un grand nez",
-        "usernameGame": "Deymons",
-        "createdAt": "2021-12-31T22:40:43.703Z",
-        "updatedAt": "2021-12-31T22:40:43.703Z",
-        "deletedAt": null
-    },
-    {
-        "id": 2,
-        "firstName": "Emile",
-        "lastName": "Louis",
-        "birthday": "2000-02-11T00:00:00.000Z",
-        "sexe": "homme",
-        "physicalDescription": "Gros lard",
-        "usernameGame": "MrDune",
-        "createdAt": "2021-12-31T22:44:56.697Z",
-        "updatedAt": "2021-12-31T22:44:56.697Z",
-        "deletedAt": null
-    },
-    {
-        "id": 3,
-        "firstName": "Emile",
-        "lastName": "02/01/1995",
-        "birthday": "1995-02-11T00:00:00.000Z",
-        "sexe": "homme",
-        "physicalDescription": "Gros lard, cheveux gris",
-        "usernameGame": "Nohko",
-        "createdAt": "2021-12-31T22:45:13.708Z",
-        "updatedAt": "2021-12-31T23:58:11.006Z",
-        "deletedAt": null
-    }
-];
+const criminal = {
+    "id": 1,
+    "firstName": "Emile",
+    "lastName": "Louis",
+    "birthday": "1995-02-01T00:00:00.000Z",
+    "sexe": "homme",
+    "physicalDescription": "Gros lard",
+    "usernameGame": "Nohko",
+}
 
-const Criminal = () => {
+const Criminal = (match) => {
+    console.log(useParams());
+    const { id } = useParams();
+
+    if (!id)
+        return (<NotFound />);
+
     return (
-        <div className="Criminal">
+        <div className="CriminalSearch">
             <Box sx={{ display: 'flex' }}>
-                <Header page="Casier judiciaire" />
+                <Header page={id} />
             </Box>
             <Container component="main" maxWidth="l" sx={{ mt: 10 }}>
-                <SearchBar />
-                <Box sx={{ mt: 1 }}>
-                <List sx={{ width: "100%", bgcolor: "background.paper" }}>
-                    {dataCriminal.map((criminal) => {
-                        return (
-                            <div key={criminal.id}>
-                                <CriminalList criminal={criminal} />
-                                <Divider variant="inset" component="li" />
-                            </div>
-                        )
-                    })}
-                </List>
-                </Box>
+                <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                >
+                    <Box
+                        component="img"
+                        sx={{
+                            height: 164,
+                            width: 164,
+                            border: 1,
+                            borderRadius: 1,
+                            backgroundPosition: "center",
+                            backgroundImage: `url(${"https://img.myloview.fr/stickers/mugshot-background-police-lineup-wall-for-short-suspects-400-263154670.jpg"})`,
+                        }}
+                        alt="The house from the offer."
+                        src={`https://minotar.net/bust/BliTz_37/100.png`}
+                    />
+                    <Card>
+                        <CardContent>
+                            <Typography component="div">
+                                {`Identité: ${criminal.firstName} ${criminal.lastName}`}
+                            </Typography>
+                            <Typography component="div">
+                                {`Sexe: ${criminal.sexe}`}
+                            </Typography>
+                            <Typography component="div">
+                                {`Date de naissance: ${criminal.birthday}`}
+                            </Typography>
+                            <Typography component="div">
+                                {`Description physique: ${criminal.physicalDescription}`}
+                            </Typography>
+                            <Typography component="div" sx={{ fontWeight: 'bold' }}>
+                                {`Status: RECHERCHER`}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                
             </Container >
         </div >
     );
 };
 
-export default Criminal;
+export default Criminal

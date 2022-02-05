@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import { ThemeProvider } from '@emotion/react';
 import theme from './ThemeCustom';
 import Criminal from './pages/Criminal';
+import CriminalSearch from './pages/CriminalSearch';
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
         <Route path="/" element={<Home />}/>
           <Route path="*" element={<NotFound />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/criminal" element={<Criminal/>} />
+          <Route path="/criminal" element={<CriminalSearch/>} />
+          <Route path="/criminal/:id" element={<Criminal/>} />
         </Routes >
       </BrowserRouter>
     </ThemeProvider>
