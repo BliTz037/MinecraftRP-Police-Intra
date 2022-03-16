@@ -16,7 +16,7 @@ const Home = () => {
         <Header page="Accueil" />
       </Box>
       <Container component="main" maxWidth="l" sx={{ mt: 10 }}>
-        <Grid container spacing={2}>
+        <Grid container  justifyContent="center" alignItems="center" spacing={1}>
           <CardData dataValue={382} iconData={<FingerprintIcon />} nameData={"Criminel enregistré"} />
           <CardData dataValue={6} iconData={<ArticleIcon />} nameData={"Rapports"} />
           <CardData dataValue={853} iconData={<GavelIcon />} nameData={"Sanctions appliqué"} />
