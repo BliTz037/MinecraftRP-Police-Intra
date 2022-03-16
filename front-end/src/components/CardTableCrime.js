@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 
 const rows = [
     {
-        "id": 2,
+        "id": 1,
         "criminalId": 1,
         "crimeCommitted": "Vol à l'étalage",
         "sanction": "31$, rappel à la loi",
@@ -31,7 +31,7 @@ const rows = [
         "deletedAt": null
     },
     {
-        "id": 2,
+        "id": 3,
         "criminalId": 1,
         "crimeCommitted": "Vol à l'étalage",
         "sanction": "31$, rappel à la loi",
