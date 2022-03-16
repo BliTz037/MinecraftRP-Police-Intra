@@ -35,6 +35,21 @@ services:
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: "police"
 
+  client:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - back-tier
+    volumes:
+      - ./front-end/:/app
+    depends_on:
+      - back-end
+    environment:
+      PORT: 3000
+
 networks:
   back-tier:
 
