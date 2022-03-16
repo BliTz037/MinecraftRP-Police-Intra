@@ -9,12 +9,8 @@ services:
       - postgres
     environment:
       PORT: 8080
-      DB_NAME: "police"
-      DB_USER: "admin"
-      DB_PASSWORD: "123456"
-      DB_HOST: "postgres"
-      DB_DRIVER: "postgres"
-      JSON_WEB_TOKEN: "zHd34Jza699dLEbM#gMGrM!HF4BeQzRkfFqE7EEq"
+    env_file:
+     - ./.env
     ports:
       - "8080:8080"
     networks:
@@ -30,10 +26,8 @@ services:
     volumes:
       - ./schema.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_USER: "admin"
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: "police"
+    env_file:
+     - ./.envDB
 
   client:
     build:
