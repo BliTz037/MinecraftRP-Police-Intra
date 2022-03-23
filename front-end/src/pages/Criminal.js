@@ -1,16 +1,21 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Card, CardContent, Container, Fab, Grid, Typography } from '@mui/material';
+import { Box, Card, CardContent, Container, Divider, Fab, Grid, List, Typography, Tabs, Tab } from '@mui/material';
 import Header from '../components/Header'
 import NotFound from './NotFound';
-
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-
-import { Divider } from '@mui/material';
-import { List } from '@mui/material';
 import CrimeList from '../components/CrimeList';
-import AddIcon from '@mui/icons-material/Add';
+
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import GavelIcon from '@mui/icons-material/Gavel';
+import ArticleIcon from '@mui/icons-material/Article';
+import ReportList from '../components/ReportList';
+
+const actions = [
+    { icon: <GavelIcon />, name: 'Crime' },
+    { icon: <ArticleIcon />, name: 'Rapport' },
+];
 
 const dataCriminal = [
     {
@@ -160,19 +165,37 @@ const Criminal = (match) => {
                     </List>
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    Item Two
+                    <List sx={{ bgcolor: "background.paper" }}>
+                        {dataCriminal.map((criminal) => {
+                            return (
+                                <div key={criminal.id}>
+                                    <ReportList report={criminal} />
+                                    <Divider variant="inset" component="li" />
+                                </div>
+                            )
+                        })}
+                    </List>
                 </TabPanel>
-                <Fab style={{
-                    margin: 0,
-                    top: 'auto',
-                    right: 20,
-                    bottom: 20,
-                    left: 'auto',
-                    position: 'fixed',
-                }} color='secondary'
+                <SpeedDial
+                    style={{
+                        margin: 0,
+                        top: 'auto',
+                        right: 20,
+                        bottom: 20,
+                        left: 'auto',
+                        position: 'fixed',
+                    }}
+                    ariaLabel="SpeedDial basic example"
+                    icon={<SpeedDialIcon />}
                 >
-                    <AddIcon />
-                </Fab>
+                    {actions.map((action) => (
+                        <SpeedDialAction
+                            key={action.name}
+                            icon={action.icon}
+                            tooltipTitle={action.name}
+                        />
+                    ))}
+                </SpeedDial>
             </Container >
         </div >
     );
