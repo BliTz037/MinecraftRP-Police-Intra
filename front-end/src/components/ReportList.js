@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, ListItem, ListItemText, ListItemAvatar, Collapse, ListItemButton, Container, List } from "@mui/material";
+import { Typography, ListItemText, ListItemAvatar, Collapse, ListItemButton, List } from "@mui/material";
 import ArticleIcon from '@mui/icons-material/Article';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
@@ -35,7 +35,7 @@ const ReportList = (props) => {
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
+            <List component="div" sx={{pl: 8}} disablePadding>
                         <Typography
                             sx={{ display: "inline" }}
                             component="span"

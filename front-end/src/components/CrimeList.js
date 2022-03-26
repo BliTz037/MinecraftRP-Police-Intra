@@ -1,15 +1,21 @@
 import React from 'react';
-import { Typography, ListItem, ListItemText, ListItemAvatar } from "@mui/material";
+import { Typography, Collapse, ListItemButton, List, ListItemText, ListItemAvatar } from "@mui/material";
 import GavelIcon from '@mui/icons-material/Gavel';
-import { Box } from '@mui/system';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const CrimeList = (props) => {
+    const [open, setOpen] = React.useState(false);
+    const handleClick = () => {
+        setOpen(!open);
+    };
+
     return (
-        <ListItem>
-            <ListItemAvatar>
-                <GavelIcon sx={{ color: 'secondary.main' }} />
-            </ListItemAvatar>
-            <Box>
+        <List>
+            <ListItemButton onClick={handleClick}>
+                <ListItemAvatar>
+                    <GavelIcon sx={{ color: 'secondary.main' }} />
+                </ListItemAvatar>
                 <ListItemText
                     primary={`${props.criminal.crimeCommitted} - ${props.criminal.createdAt}` || "N/A"}
                     secondary={
@@ -25,7 +31,11 @@ const CrimeList = (props) => {
                         </React.Fragment>
                     }
                 />
+                {open ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={open} timeout="auto" unmountOnExit>
                 <ListItemText
+                    sx={{ pl: 9 }}
                     primary={<React.Fragment>
                         <Typography
                             sx={{ display: "inline" }}
@@ -57,8 +67,8 @@ const CrimeList = (props) => {
                         </React.Fragment>
                     }
                 />
-            </Box>
-        </ListItem>
+            </Collapse>
+        </List>
     );
 };
 
