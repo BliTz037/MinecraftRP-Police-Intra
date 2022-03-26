@@ -90,7 +90,6 @@ const Criminal = (match) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
-    console.log(useParams());
     const { id } = useParams();
 
     if (!id)
