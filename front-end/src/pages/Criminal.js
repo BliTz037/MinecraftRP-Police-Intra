@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Card, CardContent, Container, Divider, Fab, Grid, List, Typography, Tabs, Tab } from '@mui/material';
+import { Box, Card, CardContent, Container, Divider, Grid, List, Typography, Tabs, Tab } from '@mui/material';
 import Header from '../components/Header'
 import NotFound from './NotFound';
 import CrimeList from '../components/CrimeList';
@@ -11,11 +11,8 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import GavelIcon from '@mui/icons-material/Gavel';
 import ArticleIcon from '@mui/icons-material/Article';
 import ReportList from '../components/ReportList';
-
-const actions = [
-    { icon: <GavelIcon />, name: 'Crime' },
-    { icon: <ArticleIcon />, name: 'Rapport' },
-];
+import DialogAddCrime from '../components/DialogAddCrime';
+import DialogAddReportCriminal from '../components/DialogAddReportCriminal';
 
 const dataCriminal = [
     {
@@ -85,12 +82,19 @@ const criminal = {
 }
 
 const Criminal = (match) => {
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
     const { id } = useParams();
+    const [value, setValue] = React.useState(0);
+    const [openDialogAddCrime, setOpenDialogAddCrime] = React.useState(0);
+    const [openDialogAddReport, setOpenDialogAddReport] = React.useState(0);
+
+    const handleChange = (event, newValue) => { setValue(newValue); };
+    const handleClickOpenDialogAddCrime = () => { setOpenDialogAddCrime(true); };
+    const handleClickOpenDialogAddReport = () => { setOpenDialogAddReport(true); };
+
+    const actions = [
+        { icon: <GavelIcon />, name: 'Crime', onClick: handleClickOpenDialogAddCrime },
+        { icon: <ArticleIcon />, name: 'Rapport', onClick: handleClickOpenDialogAddReport },
+    ];
 
     if (!id)
         return (<NotFound />);
@@ -192,10 +196,19 @@ const Criminal = (match) => {
                             key={action.name}
                             icon={action.icon}
                             tooltipTitle={action.name}
+                            onClick={action.onClick}
                         />
                     ))}
                 </SpeedDial>
             </Container >
+            <DialogAddCrime
+                open={openDialogAddCrime}
+                setValue={setOpenDialogAddCrime}
+            />
+            <DialogAddReportCriminal
+                open={openDialogAddReport}
+                setValue={setOpenDialogAddReport}
+            />
         </div >
     );
 };
